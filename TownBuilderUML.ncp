@@ -1,0 +1,137 @@
+<Project>
+  <Name>TownBuilder</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Game</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>UIManager</Name>
+        <Access>Public</Access>
+        <Location left="18" top="318" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void BuildMenu()</Member>
+        <Member type="Method">public void BuildingFunctions()</Member>
+        <Member type="Method">public void BackToMenu()</Member>
+        <Member type="Method">public void RestartGame()</Member>
+        <Member type="Method">public void UpdateStorageUi()</Member>
+        <Member type="Method">public void UpdateUI()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PlaceBuilding</Name>
+        <Access>Public</Access>
+        <Location left="373" top="318" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void PlaceHouse()</Member>
+        <Member type="Method">public void PlaceStorageBarn()</Member>
+        <Member type="Method">public void PlaceStorageArea()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GameManager</Name>
+        <Access>Public</Access>
+        <Location left="18" top="10" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void ChangeScene(int index)</Member>
+        <Member type="Method">public void QuitGame()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>MenuManager</Name>
+        <Access>Public</Access>
+        <Location left="373" top="10" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void ToGame()</Member>
+        <Member type="Method">public void QuitGame()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Workers</Name>
+        <Access>Public</Access>
+        <Location left="680" top="10" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Enum workerState</Member>
+        <Member type="Field">Gameobject target</Member>
+        <Member type="Method">public void ChanceAIState()</Member>
+        <Member type="Method">public void DoActionOnState()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>StorageBarn</Name>
+        <Access>Public</Access>
+        <Location left="680" top="318" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int wood</Member>
+        <Member type="Field">int stone</Member>
+        <Member type="Field">int food</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>House</Name>
+        <Access>Public</Access>
+        <Location left="1041" top="10" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int food</Member>
+        <Member type="Field">int fireWood</Member>
+        <Member type="Method">public void BuildHouse()</Member>
+        <Member type="Method">public void IEnumeratorBuildingHouse()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="1">
+        <Label>BuildingButonFunction</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>BuildingButonsClick</StartRole>
+      </Relationship>
+      <Relationship type="Association" first="0" second="2">
+        <Label>ChangeSceneButtonFunction</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>ButtonClick</StartRole>
+      </Relationship>
+      <Relationship type="Association" first="3" second="2">
+        <Label>SceneToGame/QuitGame</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>ButonClick</StartRole>
+      </Relationship>
+      <Relationship type="Association" first="4" second="5">
+        <Label>Picup/Place from barn</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>ActionOnState</StartRole>
+      </Relationship>
+      <Relationship type="Association" first="4" second="6">
+        <Label>ConsumeRecourses/WarmUp</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>ActionOnState</StartRole>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>BuildingFunctions</Name>
+    <Language>CSharp</Language>
+    <Entities />
+    <Relationships />
+  </ProjectItem>
+</Project>
