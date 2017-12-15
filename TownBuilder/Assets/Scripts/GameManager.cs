@@ -20,6 +20,18 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public static void PauseToggle()
+    {
+        if (Time.timeScale > 0)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+
     public static void QuitGame()
     {
 #if UNITY_EDITOR

@@ -7,27 +7,15 @@
       <Entity type="Class">
         <Name>UIManager</Name>
         <Access>Public</Access>
-        <Location left="18" top="318" />
+        <Location left="373" top="318" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void BuildMenu()</Member>
-        <Member type="Method">public void BuildingFunctions()</Member>
         <Member type="Method">public void BackToMenu()</Member>
         <Member type="Method">public void RestartGame()</Member>
         <Member type="Method">public void UpdateStorageUi()</Member>
         <Member type="Method">public void UpdateUI()</Member>
         <Member type="Method">public void UpdateHouseUI()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>PlaceBuilding</Name>
-        <Access>Public</Access>
-        <Location left="373" top="318" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void PlaceHouse()</Member>
-        <Member type="Method">public void PlaceStorageBarn()</Member>
-        <Member type="Method">public void PlaceStorageArea()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -53,7 +41,7 @@
       <Entity type="Class">
         <Name>Workers</Name>
         <Access>Public</Access>
-        <Location left="18" top="948" />
+        <Location left="373" top="661" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">Enum workerState</Member>
@@ -65,7 +53,7 @@
       <Entity type="Class">
         <Name>StorageBarn</Name>
         <Access>Public</Access>
-        <Location left="18" top="629" />
+        <Location left="10" top="661" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int wood</Member>
@@ -76,19 +64,17 @@
       <Entity type="Class">
         <Name>House</Name>
         <Access>Public</Access>
-        <Location left="373" top="629" />
+        <Location left="825" top="661" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int food</Member>
         <Member type="Field">int fireWood</Member>
-        <Member type="Method">public void BuildHouse()</Member>
-        <Member type="Method">public void IEnumeratorBuildingHouse()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Rescourses</Name>
         <Access>Public</Access>
-        <Location left="373" top="948" />
+        <Location left="373" top="1082" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int Amount</Member>
@@ -97,7 +83,7 @@
       <Entity type="Class">
         <Name>Food</Name>
         <Access>Public</Access>
-        <Location left="179" top="1229" />
+        <Location left="213" top="2022" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -105,7 +91,7 @@
       <Entity type="Class">
         <Name>Wood</Name>
         <Access>Public</Access>
-        <Location left="373" top="1229" />
+        <Location left="407" top="2022" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -113,22 +99,50 @@
       <Entity type="Class">
         <Name>Stone</Name>
         <Access>Public</Access>
-        <Location left="568" top="1229" />
+        <Location left="602" top="2022" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>BuilderManager</Name>
+        <Access>Public</Access>
+        <Location left="18" top="318" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void BuildingBuildFunctions()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>StorageSpace</Name>
+        <Access>Public</Access>
+        <Location left="1072" top="661" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int Wood</Member>
+        <Member type="Field">int food</Member>
+        <Member type="Field">int Stone</Member>
+        <Member type="Field">int metal</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Building</Name>
+        <Access>Public</Access>
+        <Location left="1072" top="1076" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int Hp</Member>
+        <Member type="Field">int woodNeeded</Member>
+        <Member type="Field">int stoneNeeded</Member>
+        <Member type="Field">int metalNeeded</Member>
+        <Member type="Method">public void PlaceBuilding()</Member>
+        <Member type="Method">public void FolowMouse()</Member>
+        <Member type="Method">public void BuildingProgress()</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="1">
-        <Label>BuildingButonFunction</Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartRole>BuildingButonsClick</StartRole>
-      </Relationship>
-      <Relationship type="Association" first="0" second="2">
         <Label>ChangeSceneButtonFunction</Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
@@ -136,7 +150,7 @@
         <AssociationType>Association</AssociationType>
         <StartRole>ButtonClick</StartRole>
       </Relationship>
-      <Relationship type="Association" first="3" second="2">
+      <Relationship type="Association" first="2" second="1">
         <Label>SceneToGame/QuitGame</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
@@ -144,90 +158,131 @@
         <AssociationType>Association</AssociationType>
         <StartRole>ButonClick</StartRole>
       </Relationship>
-      <Relationship type="Association" first="4" second="5">
+      <Relationship type="Association" first="3" second="4">
         <Label>Picup/Place from barn</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>348</X>
+          <Y>758</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>197</X>
+          <Y>758</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <StartRole>ActionOnState</StartRole>
       </Relationship>
-      <Relationship type="Association" first="4" second="6">
+      <Relationship type="Association" first="3" second="5">
         <Label>ConsumeRecourses/WarmUp</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>562</X>
+          <Y>757</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>799</X>
+          <Y>757</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <StartRole>ActionOnState</StartRole>
+      </Relationship>
+      <Relationship type="Association" first="4" second="0">
+        <Label>StorageInfo</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>393</X>
+          <Y>563</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="0">
         <Label>StorageInfo</Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>38</X>
-          <Y>563</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="6" second="0">
-        <Label>StorageInfo</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>151</X>
+          <X>506</X>
           <Y>559</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="4" second="7">
+      <Relationship type="Association" first="3" second="6">
         <Label>Harvestresources</Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>211</X>
-          <Y>1130</Y>
+          <X>458</X>
+          <Y>902</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>458</X>
+          <Y>1057</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <StartRole>ActionOnState</StartRole>
       </Relationship>
+      <Relationship type="Association" first="11" second="0">
+        <Label>StorageInfo</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>560</X>
+          <Y>436</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1157</X>
+          <Y>1337</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="5" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>926</X>
+          <Y>906</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1017</X>
+          <Y>1197</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="11" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1160</X>
+          <Y>1036</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="3" second="12">
+        <Label>Builing</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>560</X>
+          <Y>843</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1047</X>
+          <Y>1248</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>InsertResours</EndRole>
+      </Relationship>
     </Relationships>
-  </ProjectItem>
-  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
-    <Name>BuildingFunctions</Name>
-    <Language>CSharp</Language>
-    <Entities>
-      <Entity type="Class">
-        <Name>BuildHouse</Name>
-        <Access>Public</Access>
-        <Location left="47" top="79" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void OnMouseDown()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>BuildStorageBarn</Name>
-        <Access>Public</Access>
-        <Location left="229" top="79" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void OnMouseDown()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>BuildStorageSpace</Name>
-        <Access>Public</Access>
-        <Location left="413" top="79" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void OnMouseDown()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-    </Entities>
-    <Relationships />
   </ProjectItem>
 </Project>
