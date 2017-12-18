@@ -11,24 +11,25 @@ public class UIManager : MonoBehaviour {
     {
         if(Input.GetButtonDown("Escape"))
         {
+            print("Ok");
             UIToggle();
         }
     }
 
     public void UIToggle()
     {
-        GameManager.PauseToggle();
         if(basePannel.activeSelf)
         {
             basePannel.SetActive(false);
             pausePanel.SetActive(true);
+            GameManager.PauseToggle();
         }
         else if (pausePanel.activeSelf)
         {
             pausePanel.SetActive(false);
             basePannel.SetActive(true);
+            GameManager.PauseToggle();
         }
-        GameManager.PauseToggle();
     }
 
     public void Resume()
