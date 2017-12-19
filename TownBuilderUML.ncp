@@ -268,7 +268,7 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="3" second="12">
-        <Label>Builing</Label>
+        <Label>AnyBuilingStorage</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -282,6 +282,15 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <EndRole>InsertResours</EndRole>
+      </Relationship>
+      <Relationship type="Association" first="0" second="10">
+        <Label>InstantiateBuilding</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>ButtonClick</StartRole>
+        <EndRole>FunctionInScript</EndRole>
       </Relationship>
     </Relationships>
   </ProjectItem>
