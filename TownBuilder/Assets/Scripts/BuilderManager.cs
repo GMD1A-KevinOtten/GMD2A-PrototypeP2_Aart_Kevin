@@ -10,7 +10,7 @@ public class BuilderManager : MonoBehaviour {
 
     public void BuildBaseHouse()
     {
-        Instantiate(baseHouse, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+        Instantiate(baseHouse, Camera.main.ScreenToWorldPoint(Input.mousePosition - baseHouse.transform.position), Quaternion.identity);
     }
 
     public void BuildBaseStorageBarn()
