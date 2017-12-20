@@ -41,7 +41,7 @@
       <Entity type="Class">
         <Name>Workers</Name>
         <Access>Public</Access>
-        <Location left="373" top="661" />
+        <Location left="386" top="1057" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">Enum workerState</Member>
@@ -53,7 +53,7 @@
       <Entity type="Class">
         <Name>StorageBarn</Name>
         <Access>Public</Access>
-        <Location left="10" top="661" />
+        <Location left="10" top="810" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int wood</Member>
@@ -64,7 +64,7 @@
       <Entity type="Class">
         <Name>House</Name>
         <Access>Public</Access>
-        <Location left="825" top="661" />
+        <Location left="823" top="810" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int food</Member>
@@ -74,7 +74,7 @@
       <Entity type="Class">
         <Name>Rescourses</Name>
         <Access>Public</Access>
-        <Location left="373" top="1082" />
+        <Location left="386" top="1362" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int Amount</Member>
@@ -107,7 +107,7 @@
       <Entity type="Class">
         <Name>BuilderManager</Name>
         <Access>Public</Access>
-        <Location left="18" top="318" />
+        <Location left="386" top="725" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void BuildingBuildFunctions()</Member>
@@ -116,7 +116,7 @@
       <Entity type="Class">
         <Name>StorageSpace</Name>
         <Access>Public</Access>
-        <Location left="1072" top="661" />
+        <Location left="1072" top="951" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int Wood</Member>
@@ -128,7 +128,7 @@
       <Entity type="Class">
         <Name>Building</Name>
         <Access>Public</Access>
-        <Location left="1072" top="1076" />
+        <Location left="1072" top="1367" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int Hp</Member>
@@ -163,12 +163,12 @@
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>348</X>
-          <Y>758</Y>
+          <X>361</X>
+          <Y>1154</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>197</X>
-          <Y>758</Y>
+          <Y>907</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -179,12 +179,12 @@
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>562</X>
-          <Y>757</Y>
+          <X>575</X>
+          <Y>1153</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>799</X>
-          <Y>757</Y>
+          <X>797</X>
+          <Y>906</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -217,12 +217,12 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>458</X>
-          <Y>902</Y>
+          <X>471</X>
+          <Y>1298</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>458</X>
-          <Y>1057</Y>
+          <X>471</X>
+          <Y>1337</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -244,19 +244,19 @@
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>1157</X>
-          <Y>1337</Y>
+          <Y>1628</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="5" second="12">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>926</X>
-          <Y>906</Y>
+          <X>924</X>
+          <Y>1055</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>1017</X>
-          <Y>1197</Y>
+          <Y>1488</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="11" second="12">
@@ -264,7 +264,7 @@
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>1160</X>
-          <Y>1036</Y>
+          <Y>1327</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="3" second="12">
@@ -272,12 +272,12 @@
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>560</X>
-          <Y>843</Y>
+          <X>573</X>
+          <Y>1239</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>1047</X>
-          <Y>1248</Y>
+          <Y>1539</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -285,12 +285,29 @@
       </Relationship>
       <Relationship type="Association" first="0" second="10">
         <Label>InstantiateBuilding</Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>460</X>
+          <Y>559</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>460</X>
+          <Y>683</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <StartRole>ButtonClick</StartRole>
         <EndRole>FunctionInScript</EndRole>
+      </Relationship>
+      <Relationship type="Association" first="10" second="3">
+        <Label>BuildingToBuildersTarget</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>ListOfBUildings</StartRole>
+        <EndRole>PathFIndingTarget</EndRole>
       </Relationship>
     </Relationships>
   </ProjectItem>
