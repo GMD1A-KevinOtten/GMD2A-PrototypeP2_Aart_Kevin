@@ -4,24 +4,61 @@ using UnityEngine;
 
 public class Buildings : MonoBehaviour{
 
+    public enum BuildingState
+    {
+        PrePlace,
+        Constructing,
+        Done
+    }
+
+    public BuildingState bs;
     //Building Var
-    public bool doneBuilding;
     public int stoneNeeded;
     public int woodNeeded;
     public int MetalNeeded;
     public int health;
     public int maxHealth;
 
-    private void Start()
+    public void KindaUpdate()
     {
-        maxHealth = stoneNeeded + woodNeeded + MetalNeeded;
+        if(bs == BuildingState.PrePlace)
+        {
+            FollowMouse();
+            PlaceBuilding();
+            Rotate();
+        }
+    }
+
+    public void Rotate()
+    {
+        if(Input.GetButton("Q"))
+        {
+            transform.Rotate(new Vector3(0, -2, 0));
+        }
+        if(Input.GetButton("E"))
+        {
+            transform.Rotate(new Vector3(0, 2, 0));
+        }
     }
 
     public void FollowMouse()
     {
-        if(doneBuilding == false)
+        if(bs == BuildingState.PrePlace)
         {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray,out hit))
+            {
+                transform.position = hit.point;
+            }
+        }
+    }
 
+    public void PlaceBuilding()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            bs = BuildingState.Constructing;
         }
     }
 
@@ -63,7 +100,7 @@ public class Buildings : MonoBehaviour{
         }
         else
         {
-            doneBuilding = true;
+            bs = BuildingState.Done;
             print("JobDone");
         }
     }

@@ -54,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4007939294257684}
   - component: {fileID: 95140244052784646}
+  - component: {fileID: 114971868196160936}
   m_Layer: 0
   m_Name: HousePF
   m_TagString: Untagged
@@ -273,3 +274,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114971868196160936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814596668793178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a728c00a39853dd4cb34324768e5e296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bs: 0
+  stoneNeeded: 100
+  woodNeeded: 100
+  MetalNeeded: 100
+  health: 100
+  maxHealth: 1000

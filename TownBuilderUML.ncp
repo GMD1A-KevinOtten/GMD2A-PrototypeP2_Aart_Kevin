@@ -135,6 +135,7 @@
         <Member type="Field">int woodNeeded</Member>
         <Member type="Field">int stoneNeeded</Member>
         <Member type="Field">int metalNeeded</Member>
+        <Member type="Field">Enum BuildingState</Member>
         <Member type="Method">public void PlaceBuilding()</Member>
         <Member type="Method">public void FolowMouse()</Member>
         <Member type="Method">public void BuildingProgress()</Member>
