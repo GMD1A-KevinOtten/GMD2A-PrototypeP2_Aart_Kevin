@@ -5,16 +5,26 @@ using UnityEngine;
 public class BuilderManager : MonoBehaviour {
 
     //BuildingPrefabs
+    public static bool canBuild = true;
+
     public GameObject baseHouse;
     public GameObject baseStorageBarn;
 
     public void BuildBaseHouse()
     {
-        Instantiate(baseHouse, new Vector3(0,0,0), Quaternion.identity);
+        if(canBuild == true)
+        {
+            JobsAndNeedsManager.toBuild.Add(Instantiate(baseHouse, new Vector3(0, 0, 0), Quaternion.identity));
+            canBuild = false;
+        }
     }
 
     public void BuildBaseStorageBarn()
     {
-        Instantiate(baseStorageBarn, new Vector3(0, 0, 0), Quaternion.identity);
+        if (canBuild == true)
+        {
+            JobsAndNeedsManager.toBuild.Add(Instantiate(baseStorageBarn, new Vector3(0, 0, 0), Quaternion.identity));
+            canBuild = false;
+        }
     }
 }

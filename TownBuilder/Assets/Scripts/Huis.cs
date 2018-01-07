@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Huis : Buildings {
 
-	
-	void Start ()
+    public override void Start()
     {
+        base.Start();
         maxHealth = stoneNeeded + woodNeeded + MetalNeeded;
     }
-	
-	
-	void Update ()
+
+
+    void Update ()
     {
         KindaUpdate();
 	}

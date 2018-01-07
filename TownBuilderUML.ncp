@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>UIManager</Name>
         <Access>Public</Access>
-        <Location left="373" top="318" />
+        <Location left="373" top="286" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void BuildMenu()</Member>
@@ -41,7 +41,7 @@
       <Entity type="Class">
         <Name>Workers</Name>
         <Access>Public</Access>
-        <Location left="386" top="1057" />
+        <Location left="386" top="1367" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">Enum workerState</Member>
@@ -53,7 +53,7 @@
       <Entity type="Class">
         <Name>StorageBarn</Name>
         <Access>Public</Access>
-        <Location left="10" top="810" />
+        <Location left="18" top="610" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int wood</Member>
@@ -64,7 +64,7 @@
       <Entity type="Class">
         <Name>House</Name>
         <Access>Public</Access>
-        <Location left="823" top="810" />
+        <Location left="813" top="610" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int food</Member>
@@ -74,7 +74,7 @@
       <Entity type="Class">
         <Name>Rescourses</Name>
         <Access>Public</Access>
-        <Location left="386" top="1362" />
+        <Location left="386" top="1672" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int Amount</Member>
@@ -83,7 +83,7 @@
       <Entity type="Class">
         <Name>Food</Name>
         <Access>Public</Access>
-        <Location left="213" top="2022" />
+        <Location left="173" top="2447" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -91,7 +91,7 @@
       <Entity type="Class">
         <Name>Wood</Name>
         <Access>Public</Access>
-        <Location left="407" top="2022" />
+        <Location left="367" top="2447" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -99,7 +99,7 @@
       <Entity type="Class">
         <Name>Stone</Name>
         <Access>Public</Access>
-        <Location left="602" top="2022" />
+        <Location left="562" top="2447" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -107,7 +107,7 @@
       <Entity type="Class">
         <Name>BuilderManager</Name>
         <Access>Public</Access>
-        <Location left="386" top="725" />
+        <Location left="478" top="668" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void BuildingBuildFunctions()</Member>
@@ -116,7 +116,7 @@
       <Entity type="Class">
         <Name>StorageSpace</Name>
         <Access>Public</Access>
-        <Location left="1072" top="951" />
+        <Location left="1100" top="1049" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int Wood</Member>
@@ -128,7 +128,7 @@
       <Entity type="Class">
         <Name>Building</Name>
         <Access>Public</Access>
-        <Location left="1072" top="1367" />
+        <Location left="1100" top="1707" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int Hp</Member>
@@ -139,6 +139,14 @@
         <Member type="Method">public void PlaceBuilding()</Member>
         <Member type="Method">public void FolowMouse()</Member>
         <Member type="Method">public void BuildingProgress()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>JobsAndNeedsManager</Name>
+        <Access>Public</Access>
+        <Location left="478" top="1008" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
@@ -165,11 +173,11 @@
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>361</X>
-          <Y>1154</Y>
+          <Y>1464</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>197</X>
-          <Y>907</Y>
+          <X>205</X>
+          <Y>707</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -181,11 +189,11 @@
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>575</X>
-          <Y>1153</Y>
+          <Y>1463</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>797</X>
-          <Y>906</Y>
+          <X>787</X>
+          <Y>706</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -197,7 +205,7 @@
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>393</X>
-          <Y>563</Y>
+          <Y>531</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -208,7 +216,7 @@
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>506</X>
-          <Y>559</Y>
+          <Y>527</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -219,11 +227,11 @@
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>471</X>
-          <Y>1298</Y>
+          <Y>1608</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>471</X>
-          <Y>1337</Y>
+          <Y>1647</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -235,7 +243,7 @@
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
           <X>560</X>
-          <Y>436</Y>
+          <Y>404</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -244,28 +252,28 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1157</X>
-          <Y>1628</Y>
+          <X>1185</X>
+          <Y>1968</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="5" second="12">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>924</X>
-          <Y>1055</Y>
+          <X>914</X>
+          <Y>855</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>1017</X>
-          <Y>1488</Y>
+          <X>1045</X>
+          <Y>1828</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="11" second="12">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1160</X>
-          <Y>1327</Y>
+          <X>1188</X>
+          <Y>1667</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="3" second="12">
@@ -274,11 +282,11 @@
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>573</X>
-          <Y>1239</Y>
+          <Y>1549</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>1047</X>
-          <Y>1539</Y>
+          <X>1075</X>
+          <Y>1879</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -290,25 +298,34 @@
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>460</X>
-          <Y>559</Y>
+          <Y>527</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>460</X>
-          <Y>683</Y>
+          <X>552</X>
+          <Y>626</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <StartRole>ButtonClick</StartRole>
         <EndRole>FunctionInScript</EndRole>
       </Relationship>
-      <Relationship type="Association" first="10" second="3">
-        <Label>BuildingToBuildersTarget</Label>
+      <Relationship type="Association" first="10" second="13">
+        <Label>give object</Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
-        <StartRole>ListOfBUildings</StartRole>
-        <EndRole>PathFIndingTarget</EndRole>
+        <StartRole>instantiation</StartRole>
+        <EndRole>put in tobuild list</EndRole>
+      </Relationship>
+      <Relationship type="Association" first="13" second="3">
+        <Label>infrmation about jobs and needs</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartRole>lists</StartRole>
+        <EndRole>action/pathfinding</EndRole>
       </Relationship>
     </Relationships>
   </ProjectItem>

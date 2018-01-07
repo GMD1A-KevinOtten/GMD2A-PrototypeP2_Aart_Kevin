@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class Buildings : MonoBehaviour{
 
     public enum BuildingState
@@ -18,6 +18,16 @@ public class Buildings : MonoBehaviour{
     public int MetalNeeded;
     public int health;
     public int maxHealth;
+
+    public List<Transform> children = new List<Transform>();
+
+    public virtual void Start()
+    {
+        foreach (Transform child in transform)
+        {
+            children.Add(child);
+        }
+    }
 
     public void KindaUpdate()
     {
@@ -59,6 +69,9 @@ public class Buildings : MonoBehaviour{
         if(Input.GetMouseButtonDown(0))
         {
             bs = BuildingState.Constructing;
+            children[2].gameObject.SetActive(false);
+            children[1].gameObject.SetActive(false);
+            BuilderManager.canBuild = true;
         }
     }
 
@@ -66,7 +79,8 @@ public class Buildings : MonoBehaviour{
     {
         if(stoneNeeded != 0)
         {
-            stoneNeeded -= wk.stone;
+            stoneNeeded += wk.stone;
+            wk.stone = 0;
             if(stoneNeeded > 0)
             {
                 wk.stone = stoneNeeded;
@@ -76,7 +90,8 @@ public class Buildings : MonoBehaviour{
 
         if (woodNeeded != 0)
         {
-            woodNeeded -= wk.wood;
+            woodNeeded += wk.wood;
+            wk.wood = 0;
             if (woodNeeded > 0)
             {
                 wk.wood = woodNeeded;
@@ -86,7 +101,8 @@ public class Buildings : MonoBehaviour{
 
         if (MetalNeeded != 0)
         {
-            MetalNeeded -= wk.metal;
+            MetalNeeded += wk.metal;
+            wk.metal = 0;
             if (MetalNeeded > 0)
             {
                 wk.metal = MetalNeeded;
@@ -97,9 +113,14 @@ public class Buildings : MonoBehaviour{
         else if(health != maxHealth)
         {
             health += 10;
+            if (health == maxHealth / 2)
+            {
+                children[1].gameObject.SetActive(false);
+            }
         }
         else
         {
+            children[2].gameObject.SetActive(false);
             bs = BuildingState.Done;
             print("JobDone");
         }
