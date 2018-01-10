@@ -41,7 +41,7 @@
       <Entity type="Class">
         <Name>Workers</Name>
         <Access>Public</Access>
-        <Location left="386" top="1367" />
+        <Location left="386" top="1365" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">Enum workerState</Member>
@@ -74,7 +74,7 @@
       <Entity type="Class">
         <Name>Recourses</Name>
         <Access>Public</Access>
-        <Location left="386" top="1672" />
+        <Location left="386" top="2121" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int Amount</Member>
@@ -83,7 +83,7 @@
       <Entity type="Class">
         <Name>Food</Name>
         <Access>Public</Access>
-        <Location left="182" top="1996" />
+        <Location left="182" top="2409" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -91,7 +91,7 @@
       <Entity type="Class">
         <Name>Wood</Name>
         <Access>Public</Access>
-        <Location left="386" top="1996" />
+        <Location left="386" top="2409" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -99,7 +99,7 @@
       <Entity type="Class">
         <Name>Stone</Name>
         <Access>Public</Access>
-        <Location left="588" top="1996" />
+        <Location left="588" top="2409" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -153,7 +153,15 @@
       <Entity type="Class">
         <Name>Metal</Name>
         <Access>Public</Access>
-        <Location left="786" top="1996" />
+        <Location left="786" top="2409" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>HarvestableObject</Name>
+        <Access>Public</Access>
+        <Location left="158" top="1687" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -182,7 +190,7 @@
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>361</X>
-          <Y>1464</Y>
+          <Y>1462</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>205</X>
@@ -198,7 +206,7 @@
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>575</X>
-          <Y>1463</Y>
+          <Y>1461</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>787</X>
@@ -229,22 +237,6 @@
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="3" second="6">
-        <Label>Harvestresources</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>471</X>
-          <Y>1608</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>471</X>
-          <Y>1647</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartRole>ActionOnState</StartRole>
       </Relationship>
       <Relationship type="Association" first="11" second="0">
         <Label>StorageInfo</Label>
@@ -291,7 +283,7 @@
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>573</X>
-          <Y>1549</Y>
+          <Y>1547</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>1075</X>
@@ -337,28 +329,36 @@
         <EndRole>action/pathfinding</EndRole>
       </Relationship>
       <Relationship type="Dependency" first="14" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="9" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="8" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="7" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="3" second="15">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="15" second="6">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
       </Relationship>
     </Relationships>
   </ProjectItem>

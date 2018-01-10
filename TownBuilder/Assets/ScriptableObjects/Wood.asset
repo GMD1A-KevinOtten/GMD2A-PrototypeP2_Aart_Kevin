@@ -11,7 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2447ed30c6f9c499f6be9de96b775b, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
+  workNeeded: 0
   wood: 100
   stone: 0
   metal: 0
   food: 0
+  ingameFormRecourse: {fileID: 1796065451924058, guid: 09f4ecbc6357b4142b2bc537ebf810c7,
+    type: 2}

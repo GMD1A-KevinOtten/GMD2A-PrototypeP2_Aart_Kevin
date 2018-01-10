@@ -8,6 +8,7 @@ public class JobsAndNeedsManager : MonoBehaviour {
 
     public static List<GameObject> toBuild = new List<GameObject>();
     public static List<GameObject> toHarvest = new List<GameObject>();
+    public static List<GameObject> toCollect = new List<GameObject>();
     public List<GameObject> selectedObjects = new List<GameObject>();
     public bool overButon;
 
@@ -36,7 +37,7 @@ public class JobsAndNeedsManager : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.GetComponent<RecoursHolder>())
+                if (hit.transform.GetComponent<HarvestableObject>())
                 {
                     if(Input.GetButton("LShift"))
                     {
