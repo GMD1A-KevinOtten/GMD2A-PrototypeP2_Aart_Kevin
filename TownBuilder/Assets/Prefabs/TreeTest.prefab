@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1896724322306198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 7.3, z: 900}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,7 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4eb7bf506547f4499510aed3d505c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rC: {fileID: 11400000, guid: ecc705d2a4e4b0b409c27cea8752c570, type: 2}
+  hO: {fileID: 11400000, guid: c3bad3cddd6fc3e4a90c769ba7f0fb15, type: 2}
+  harvestProgress: 0
 --- !u!208 &208528773834263682
 NavMeshObstacle:
   m_ObjectHideFlags: 1

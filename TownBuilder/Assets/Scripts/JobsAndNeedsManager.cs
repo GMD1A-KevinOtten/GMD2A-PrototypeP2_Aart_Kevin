@@ -37,7 +37,7 @@ public class JobsAndNeedsManager : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.GetComponent<HarvestableObject>())
+                if (hit.transform.GetComponent<HarvestableObjectHolder>())
                 {
                     if(Input.GetButton("LShift"))
                     {

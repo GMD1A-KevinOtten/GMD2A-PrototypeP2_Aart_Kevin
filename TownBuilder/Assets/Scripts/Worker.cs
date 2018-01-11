@@ -43,6 +43,7 @@ public class Worker : MonoBehaviour {
     {
         WorkerActivity();
         BuilderActivity();
+        print(activity);
     }
 
     public void ChangeJob(int i)
@@ -92,6 +93,7 @@ public class Worker : MonoBehaviour {
             {
                 if (target == null )
                 {
+                    print("ChangeState");
                     if(stone + wood + metal + food == carryWeight)
                     {
                         activity = State.storing;
@@ -129,12 +131,21 @@ public class Worker : MonoBehaviour {
     {
         if(target != null)
         {
-            print("kkfam");
-            HarvestableObject harvObj = target.GetComponent<HarvestableObject>();
-            harvObj.Harvest();
-            StartCoroutine(Harvesting());
+            HarvestableObjectHolder hOH = target.GetComponent<HarvestableObjectHolder>();
+            if (hOH.harvestProgress != hOH.hO.workNeeded)
+            {
+                hOH.harvestProgress += 10;
+                if (hOH.harvestProgress == hOH.hO.workNeeded)
+                {
+                    JobsAndNeedsManager.toCollect.Add(Instantiate(hOH.hO.ingameFormRecourse, target.transform.position, Quaternion.identity));
+                    Destroy(target);
+                }
+            }
+            if(hOH.harvestProgress != hOH.hO.workNeeded)
+            {
+                StartCoroutine(Harvesting());
+            }
         }
-        
     }
 
     public void Collect()
@@ -142,7 +153,11 @@ public class Worker : MonoBehaviour {
         if(target != null)
         {
             RecoursHolder recHold = target.GetComponent<RecoursHolder>();
-            recHold.CollectRecources(this);
+            wood += recHold.rC.wood;
+            stone += recHold.rC.stone;
+            metal += recHold.rC.metal;
+            food += recHold.rC.food;
+            Destroy(target);
         }
     }
 
@@ -209,15 +224,15 @@ public class Worker : MonoBehaviour {
     {
         if(currenyJob == Job.Worker)
         {
-            if (activity == State.Searching && collision.gameObject == target && target.GetComponent<HarvestableObject>())
+            if (activity == State.Searching && collision.gameObject == target && target.GetComponent<HarvestableObjectHolder>())
             {
-                StartCoroutine(Harvesting());
                 activity = State.Harvesting;
+                StartCoroutine(Harvesting());
             }
             if (activity == State.Searching && collision.gameObject == target && target.GetComponent<RecoursHolder>())
             {
+                activity = State.Collecting;
                 StartCoroutine(Collecting());
-                activity = State.Harvesting;
             }
         }
         
@@ -232,7 +247,6 @@ public class Worker : MonoBehaviour {
         yield return new WaitForSeconds(1);
         if (target != null)
         {
-            print("ok");
             Harvest();
         }
     }
