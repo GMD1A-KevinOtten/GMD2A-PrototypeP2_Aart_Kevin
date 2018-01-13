@@ -136,7 +136,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 127089163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -393, y: -107.5, z: 0}
+  m_LocalPosition: {x: -393, y: -120.5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 2123636004}
@@ -478,7 +478,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 298163758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -400, y: -149.5, z: 0}
+  m_LocalPosition: {x: -400, y: -162.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 333843686}
@@ -822,7 +822,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 614580179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 503, y: 187.5, z: 0}
+  m_LocalPosition: {x: 503, y: 200.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1330219128}
@@ -847,7 +847,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseHouse: {fileID: 1814596668793178, guid: b64710c073ad0bf489206d094d6fa254, type: 2}
-  baseStorageBarn: {fileID: 100002, guid: 4e2ed11ff1452874083ef4abf2787394, type: 3}
+  baseStorageBarn: {fileID: 1810758808082022, guid: d16dc25bc17537c4fada91d1bd0fe3a7,
+    type: 2}
 --- !u!114 &614580186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,9 +1326,9 @@ GameObject:
   - component: {fileID: 1059614055}
   - component: {fileID: 1059614054}
   - component: {fileID: 1059614053}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1395,7 +1396,7 @@ Transform:
   m_GameObject: {fileID: 1059614052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 900}
-  m_LocalScale: {x: 5, y: 1, z: 5}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8

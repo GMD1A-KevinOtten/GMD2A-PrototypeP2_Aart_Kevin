@@ -55,6 +55,8 @@ GameObject:
   - component: {fileID: 4007939294257684}
   - component: {fileID: 95140244052784646}
   - component: {fileID: 114971868196160936}
+  - component: {fileID: 208224586510711074}
+  - component: {fileID: 65882346537935562}
   m_Layer: 0
   m_Name: HousePF
   m_TagString: Untagged
@@ -86,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1814596668793178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -223.75026, y: 4.3, z: 431.9484}
+  m_LocalPosition: {x: -22.370346, y: 41.58773, z: -39.261227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4526051954506620}
@@ -257,6 +259,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1834654194290376}
   m_Mesh: {fileID: 4300000, guid: 3d8229d84835aa9498382db23cbff086, type: 3}
+--- !u!65 &65882346537935562
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814596668793178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 1, z: 8}
+  m_Center: {x: -2, y: 1, z: 0}
 --- !u!95 &95140244052784646
 Animator:
   serializedVersion: 3
@@ -291,3 +305,19 @@ MonoBehaviour:
   MetalNeeded: 100
   health: 100
   maxHealth: 1000
+  children: []
+--- !u!208 &208224586510711074
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814596668793178}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 2.5, z: 4}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -2, y: 2.5, z: 0}
+  m_TimeToStationary: 0.5

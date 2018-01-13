@@ -55,9 +55,11 @@ public class Buildings : MonoBehaviour{
     {
         if(bs == BuildingState.PrePlace)
         {
+            int layerMask = 1 << 8;
+            print("kk");
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray,out hit))
+            if (Physics.Raycast(ray,out hit,Mathf.Infinity,layerMask) && hit.transform.tag == "Floor")
             {
                 transform.position = hit.point;
             }
@@ -69,8 +71,15 @@ public class Buildings : MonoBehaviour{
         if(Input.GetMouseButtonDown(0))
         {
             bs = BuildingState.Constructing;
-            children[2].gameObject.SetActive(false);
-            children[1].gameObject.SetActive(false);
+            if(children.Count > 2)
+            {
+                children[2].gameObject.SetActive(false);
+                children[1].gameObject.SetActive(false);
+            }
+            else
+            {
+                children[1].gameObject.SetActive(false);
+            }
             BuilderManager.canBuild = true;
         }
     }
@@ -113,14 +122,21 @@ public class Buildings : MonoBehaviour{
         else if(health != maxHealth)
         {
             health += 10;
-            if (health == maxHealth / 2)
+            if (health == maxHealth / 2 && children.Count > 2)
             {
                 children[1].gameObject.SetActive(false);
             }
         }
         else
         {
-            children[2].gameObject.SetActive(false);
+            if(children.Count >= 3)
+            {
+                children[2].gameObject.SetActive(false);
+            }
+            else
+            {
+                children[1].gameObject.SetActive(true);
+            }
             bs = BuildingState.Done;
             print("JobDone");
         }

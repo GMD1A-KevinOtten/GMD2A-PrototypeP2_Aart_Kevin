@@ -125,7 +125,11 @@ public class Worker : MonoBehaviour {
 
     public void StoringRecourses()
     {
-        print("kk store");
+        StorageOpen storage = target.GetComponent<StorageOpen>();
+        storage.woodStorage += wood;
+        storage.stoneStorage += stone;
+        storage.MetalNeeded += metal;
+        storage.foodStorage += food;
     }
 
     public void Harvest()
@@ -219,6 +223,20 @@ public class Worker : MonoBehaviour {
                 }
             }
         }
+        else if (1 == 4)
+        {
+            float dist = Mathf.Infinity;
+            foreach (GameObject g in JobsAndNeedsManager.Storage)
+            {
+                Vector3 diff = g.transform.position - transform.position;
+                float curDist = diff.sqrMagnitude;
+                if (curDist < dist)
+                {
+                    target = g;
+                    dist = curDist;
+                }
+            }
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -234,6 +252,10 @@ public class Worker : MonoBehaviour {
             {
                 activity = State.Collecting;
                 StartCoroutine(Collecting());
+            }
+            if (activity == State.storing && collision.gameObject == target && target.GetComponent<RecoursHolder>())
+            {
+                StoringRecourses();
             }
         }
         
