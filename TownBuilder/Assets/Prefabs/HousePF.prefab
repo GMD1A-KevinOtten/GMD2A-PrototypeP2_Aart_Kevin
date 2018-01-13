@@ -300,10 +300,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bs: 0
-  stoneNeeded: 100
-  woodNeeded: 100
-  MetalNeeded: 100
-  health: 100
+  stoneNeeded: 0
+  woodNeeded: 0
+  MetalNeeded: 0
+  health: 10
   maxHealth: 1000
   children: []
 --- !u!208 &208224586510711074

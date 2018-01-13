@@ -14,7 +14,7 @@ public class BuilderManager : MonoBehaviour {
     {
         if(canBuild == true)
         {
-            JobsAndNeedsManager.toBuild.Add(Instantiate(baseHouse, new Vector3(0, 0, 0), Quaternion.identity));
+            Instantiate(baseHouse, new Vector3(0, 0, 0), Quaternion.identity);
             canBuild = false;
         }
     }
@@ -23,7 +23,7 @@ public class BuilderManager : MonoBehaviour {
     {
         if (canBuild == true)
         {
-            JobsAndNeedsManager.toBuild.Add(Instantiate(baseStorageBarn, new Vector3(0, 0, 0), Quaternion.identity));
+            Instantiate(baseStorageBarn, new Vector3(0, 0, 0), Quaternion.identity);
             canBuild = false;
         }
     }

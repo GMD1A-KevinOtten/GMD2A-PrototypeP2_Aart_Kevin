@@ -8,6 +8,10 @@ public class Huis : Buildings {
     {
         base.Start();
         maxHealth = stoneNeeded + woodNeeded + MetalNeeded;
+        if(maxHealth == 0)
+        {
+            maxHealth = 100;
+        }
     }
 
 

@@ -22,6 +22,7 @@ public class Worker : MonoBehaviour {
         Harvesting,
         Collecting,
         storing,
+        building,
         needs
     }
 
@@ -43,7 +44,6 @@ public class Worker : MonoBehaviour {
     {
         WorkerActivity();
         BuilderActivity();
-        print(target);
     }
 
     public void ChangeJob(int i)
@@ -98,7 +98,6 @@ public class Worker : MonoBehaviour {
                     if(stone + wood + metal + food == carryWeight)
                     {
                         activity = State.storing;
-                        StoringRecourses();
                     }
                     else
                     {
@@ -113,12 +112,47 @@ public class Worker : MonoBehaviour {
                 {
                     activity = State.Idel;
                 }
+                else
+                {
+                    ChangeTarget(4);
+                    nma.destination = target.transform.position;
+                }
             }
 
             //secundair
             if (activity == State.needs)
             {
 
+            }
+        }
+    }
+
+    public void BuilderActivity()
+    {
+        if (currenyJob == Job.Builder)
+        {
+            print(activity);
+            if(activity == State.Idel)
+            {
+                if (JobsAndNeedsManager.toBuild.Count != 0)
+                {
+                    if (target == null || target.GetComponent<Buildings>().health >= target.GetComponent<Buildings>().maxHealth)
+                    {
+                        ChangeTarget(3);
+                    }
+                    print(JobsAndNeedsManager.toBuild);
+                    print(target);
+                    if (target != null)
+                    {
+                        nma.destination = target.transform.position;
+                        activity = State.Searching;
+                    }
+                }
+            }
+
+            if(activity == State.building && target.GetComponent<Buildings>().health >= target.GetComponent<Buildings>().maxHealth)
+            {
+                activity = State.Idel;
             }
         }
     }
@@ -168,15 +202,9 @@ public class Worker : MonoBehaviour {
 
     public void Build()
     {
-
-    }
-
-    public void BuilderActivity()
-    {
-        if (currenyJob == Job.Builder)
-        {
-
-        }
+        Buildings gebouw = target.GetComponent<Buildings>();
+        gebouw.CheckProgresOnBuilding(this);
+        StartCoroutine(Building());
     }
 
     public void ChangeTarget(int i)
@@ -209,7 +237,7 @@ public class Worker : MonoBehaviour {
                 }
             }
         }
-        else if(1 == 3)
+        else if(i == 3)
         {
             float dist = Mathf.Infinity;
             foreach (GameObject g in JobsAndNeedsManager.toBuild)
@@ -253,7 +281,7 @@ public class Worker : MonoBehaviour {
                 activity = State.Collecting;
                 StartCoroutine(Collecting());
             }
-            if (activity == State.storing && collision.gameObject == target && target.GetComponent<RecoursHolder>())
+            if (activity == State.storing && collision.gameObject == target && target.GetComponent<StorageOpen>())
             {
                 StoringRecourses();
             }
@@ -261,7 +289,11 @@ public class Worker : MonoBehaviour {
         
         if(currenyJob == Job.Builder)
         {
-
+            if(activity == State.Searching && collision.gameObject == target)
+            {
+                activity = State.building;
+                StartCoroutine(Building());
+            }
         }
     }
     public IEnumerator Harvesting()
