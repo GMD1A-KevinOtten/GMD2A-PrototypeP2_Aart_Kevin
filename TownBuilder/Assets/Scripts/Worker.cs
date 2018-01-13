@@ -43,7 +43,7 @@ public class Worker : MonoBehaviour {
     {
         WorkerActivity();
         BuilderActivity();
-        print(activity);
+        print(target);
     }
 
     public void ChangeJob(int i)
@@ -73,11 +73,13 @@ public class Worker : MonoBehaviour {
                 {
                     ChangeTarget(1);
                     nma.destination = target.transform.position;
+                    print("Move 1");
                 }
                 else if (JobsAndNeedsManager.toCollect.Count != 0)
                 {
                     ChangeTarget(2);
                     nma.destination = target.transform.position;
+                    print("Move 2");
                 }
             }
 
@@ -221,12 +223,10 @@ public class Worker : MonoBehaviour {
 
     public void OnCollisionEnter(Collision collision)
     {
-        print("Collision");
         if(currenyJob == Job.Worker)
         {
             if (activity == State.Searching && collision.gameObject == target && target.GetComponent<HarvestableObjectHolder>())
             {
-                print("Harvest");
                 activity = State.Harvesting;
                 StartCoroutine(Harvesting());
             }
@@ -242,7 +242,6 @@ public class Worker : MonoBehaviour {
 
         }
     }
-
     public IEnumerator Harvesting()
     {
         yield return new WaitForSeconds(1);
