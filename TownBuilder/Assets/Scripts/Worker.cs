@@ -69,14 +69,14 @@ public class Worker : MonoBehaviour {
 
             if (activity == State.Searching)
             {
-                if(JobsAndNeedsManager.toCollect.Count != 0)
-                {
-                    ChangeTarget(2);
-                    nma.destination = target.transform.position;
-                }
-                else if(JobsAndNeedsManager.toHarvest.Count != 0)
+                if(JobsAndNeedsManager.toHarvest.Count != 0)
                 {
                     ChangeTarget(1);
+                    nma.destination = target.transform.position;
+                }
+                else if (JobsAndNeedsManager.toCollect.Count != 0)
+                {
+                    ChangeTarget(2);
                     nma.destination = target.transform.position;
                 }
             }
@@ -93,7 +93,6 @@ public class Worker : MonoBehaviour {
             {
                 if (target == null )
                 {
-                    print("ChangeState");
                     if(stone + wood + metal + food == carryWeight)
                     {
                         activity = State.storing;
@@ -222,10 +221,12 @@ public class Worker : MonoBehaviour {
 
     public void OnCollisionEnter(Collision collision)
     {
+        print("Collision");
         if(currenyJob == Job.Worker)
         {
             if (activity == State.Searching && collision.gameObject == target && target.GetComponent<HarvestableObjectHolder>())
             {
+                print("Harvest");
                 activity = State.Harvesting;
                 StartCoroutine(Harvesting());
             }
