@@ -140,24 +140,20 @@ public class Worker : MonoBehaviour {
             {
                 if (JobsAndNeedsManager.toBuild.Count != 0)
                 {
-                    print("iets in lijst");
                     if (target == null || target.GetComponent<Buildings>().health >= target.GetComponent<Buildings>().maxHealth)
                     {
-                        print("niets in");
                         ChangeTarget(3);
                     }
                     if (target != null)
                     {
-                        print("niet lef");
                         nma.destination = target.transform.position;
                         activity = State.Searching;
                     }
                 }
             }
 
-            if(activity == State.building && target.GetComponent<Buildings>().health >= target.GetComponent<Buildings>().maxHealth)
+            if(activity == State.building && target == null)
             {
-                print("JobDone");
                 activity = State.Idel;
             }
 
@@ -220,9 +216,12 @@ public class Worker : MonoBehaviour {
 
     public void Build()
     {
-        Buildings gebouw = target.GetComponent<Buildings>();
-        gebouw.CheckProgresOnBuilding(this);
-        StartCoroutine(Building());
+        if(activity == State.building)
+        {
+            Buildings gebouw = target.GetComponent<Buildings>();
+            gebouw.CheckProgresOnBuilding(this);
+            StartCoroutine(Building());
+        }
     }
 
     public void ChangeTarget(int i)
@@ -310,7 +309,7 @@ public class Worker : MonoBehaviour {
     {
         if (currenyJob == Job.Builder)
         {
-            if (activity == State.Searching && other.gameObject == target)
+            if (activity == State.Searching && other.gameObject == target && target.GetComponent<Buildings>().health != target.GetComponent<Buildings>().maxHealth)
             {
                 print("collisionWhitTarget");
                 activity = State.building;

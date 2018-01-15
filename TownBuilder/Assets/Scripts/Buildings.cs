@@ -126,21 +126,20 @@ public class Buildings : MonoBehaviour{
             {
                 children[1].gameObject.SetActive(true);
             }
-        }
-        else
-        {
-            if(children.Count >= 3)
+            if(health == maxHealth)
             {
-                children[2].gameObject.SetActive(true);
+                JobsAndNeedsManager.toBuild.Remove(this.gameObject);
+                if (children.Count >= 3)
+                {
+                    children[2].gameObject.SetActive(true);
+                }
+                else
+                {
+                    children[1].gameObject.SetActive(true);
+                }
+                bs = BuildingState.Done;
+                wk.target = null;
             }
-            else
-            {
-                children[1].gameObject.SetActive(true);
-            }
-            bs = BuildingState.Done;
-            JobsAndNeedsManager.toBuild.Remove(this.gameObject);
-            wk.target = null;
-            print(JobsAndNeedsManager.toBuild.Count);
         }
     }
 }
