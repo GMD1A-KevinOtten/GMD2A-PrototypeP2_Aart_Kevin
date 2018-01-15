@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StorageOpen : Buildings
 {
-
+    public bool inList;
     public int woodStorage;
     public int stoneStorage;
     public int metalStorage;
@@ -17,7 +17,7 @@ public class StorageOpen : Buildings
         maxHealth = stoneNeeded + woodNeeded + MetalNeeded;
         if (maxHealth == 0)
         {
-            maxHealth = 100;
+            maxHealth = 30;
         }
     }
 
@@ -25,9 +25,11 @@ public class StorageOpen : Buildings
     void Update()
     {
         KindaUpdate();
-        if (health == maxHealth && bs == BuildingState.Done)
+        if (health == maxHealth && bs == BuildingState.Done && inList == false)
         {
+            inList = true;
             JobsAndNeedsManager.Storage.Add(this.gameObject);
+            print("added");
         }
     }
 }

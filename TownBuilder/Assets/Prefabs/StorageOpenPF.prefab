@@ -247,7 +247,7 @@ MonoBehaviour:
   stoneNeeded: 0
   woodNeeded: 0
   MetalNeeded: 0
-  health: 100
+  health: 0
   maxHealth: 300
   children: []
   woodStorage: 0

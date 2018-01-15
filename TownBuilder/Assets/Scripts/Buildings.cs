@@ -15,7 +15,7 @@ public class Buildings : MonoBehaviour{
     //Building Var
     public int stoneNeeded;
     public int woodNeeded;
-    public int MetalNeeded;
+    public int metalNeeded;
     public int health;
     public int maxHealth;
 
@@ -108,14 +108,14 @@ public class Buildings : MonoBehaviour{
             }
         }
 
-        if (MetalNeeded != 0)
+        if (metalNeeded != 0)
         {
-            MetalNeeded += wk.metal;
+            metalNeeded += wk.metal;
             wk.metal = 0;
-            if (MetalNeeded > 0)
+            if (metalNeeded > 0)
             {
-                wk.metal = MetalNeeded;
-                MetalNeeded = 0;
+                wk.metal = metalNeeded;
+                metalNeeded = 0;
             }
         }
 

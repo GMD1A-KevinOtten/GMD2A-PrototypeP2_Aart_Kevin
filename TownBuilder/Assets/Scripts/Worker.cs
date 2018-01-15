@@ -11,6 +11,7 @@ public class Worker : MonoBehaviour {
     public int food;
     public int carryWeight;
 
+    public GameObject currentBuilding;
     public NavMeshAgent nma;
     public JobsAndNeedsManager jm;
     public GameObject target;
@@ -21,9 +22,10 @@ public class Worker : MonoBehaviour {
         Searching,
         Harvesting,
         Collecting,
-        storing,
-        building,
-        needs
+        Storing,
+        Building,
+        Fetching,
+        Needs
     }
 
     public enum Job
@@ -80,7 +82,7 @@ public class Worker : MonoBehaviour {
                     ChangeTarget(2);
                     nma.destination = target.transform.position;
                 }
-                else if (wood + stone + metal + food >= 0 && JobsAndNeedsManager.Storage.Count != 0)
+                else if (wood + stone + metal + food != 0 && JobsAndNeedsManager.Storage.Count != 0)
                 {
                     ChangeTarget(4);
                     nma.destination = target.transform.position;
@@ -101,7 +103,7 @@ public class Worker : MonoBehaviour {
                 {
                     if(stone + wood + metal + food == carryWeight)
                     {
-                        activity = State.storing;
+                        activity = State.Storing;
                     }
                     else
                     {
@@ -110,7 +112,7 @@ public class Worker : MonoBehaviour {
                 }
             }
 
-            if (activity == State.storing)
+            if (activity == State.Storing)
             {
                 if(JobsAndNeedsManager.Storage.Count == 0)
                 {
@@ -119,12 +121,13 @@ public class Worker : MonoBehaviour {
                 else
                 {
                     ChangeTarget(4);
+                    print(JobsAndNeedsManager.Storage[0]);
                     nma.destination = target.transform.position;
                 }
             }
 
             //secundair
-            if (activity == State.needs)
+            if (activity == State.Needs)
             {
 
             }
@@ -152,16 +155,23 @@ public class Worker : MonoBehaviour {
                 }
             }
 
-            if(activity == State.building && target == null)
+            if(activity == State.Building && target == null)
             {
                 activity = State.Idel;
             }
 
             if(activity == State.Searching)
             {
-                if(target == null)
+                currentBuilding = target;
+                Buildings gebouw = currentBuilding.GetComponent<Buildings>();
+                if (target == null)
                 {
                     activity = State.Idel;
+                }
+                if(gebouw.woodNeeded > 0 || gebouw.stoneNeeded > 0 || gebouw.metalNeeded > 0)
+                {
+                    ChangeTarget(4);
+                    nma.destination = target.transform.position;
                 }
             }
         }
@@ -172,7 +182,7 @@ public class Worker : MonoBehaviour {
         StorageOpen storage = target.GetComponent<StorageOpen>();
         storage.woodStorage += wood;
         storage.stoneStorage += stone;
-        storage.MetalNeeded += metal;
+        storage.metalNeeded += metal;
         storage.foodStorage += food;
         wood = 0;
         stone = 0;
@@ -184,10 +194,12 @@ public class Worker : MonoBehaviour {
     {
         if(target != null)
         {
+            print("ok");
             HarvestableObjectHolder hOH = target.GetComponent<HarvestableObjectHolder>();
             if (hOH.harvestProgress != hOH.hO.workNeeded)
             {
                 hOH.harvestProgress += 10;
+                print("Harvest");
                 if (hOH.harvestProgress == hOH.hO.workNeeded)
                 {
                     JobsAndNeedsManager.toCollect.Add(Instantiate(hOH.hO.ingameFormRecourse, target.transform.position, Quaternion.identity));
@@ -216,7 +228,7 @@ public class Worker : MonoBehaviour {
 
     public void Build()
     {
-        if(activity == State.building)
+        if(activity == State.Building)
         {
             Buildings gebouw = target.GetComponent<Buildings>();
             gebouw.CheckProgresOnBuilding(this);
@@ -275,7 +287,7 @@ public class Worker : MonoBehaviour {
             {
                 Vector3 diff = g.transform.position - transform.position;
                 float curDist = diff.sqrMagnitude;
-                if (curDist < dist)
+                if (curDist < dist && g != target)
                 {
                     target = g;
                     dist = curDist;
@@ -298,7 +310,7 @@ public class Worker : MonoBehaviour {
                 activity = State.Collecting;
                 StartCoroutine(Collecting());
             }
-            if (activity == State.storing && other.gameObject == target && target.GetComponent<StorageOpen>())
+            if (activity == State.Storing && other.gameObject == target && target.GetComponent<StorageOpen>())
             {
                 StoringRecourses();
             }
@@ -312,8 +324,57 @@ public class Worker : MonoBehaviour {
             if (activity == State.Searching && other.gameObject == target && target.GetComponent<Buildings>().health != target.GetComponent<Buildings>().maxHealth)
             {
                 print("collisionWhitTarget");
-                activity = State.building;
+                activity = State.Building;
                 StartCoroutine(Building());
+            }
+
+            if (activity == State.Fetching && other.gameObject == target.gameObject)
+            {
+                Buildings huidigGebouw = currentBuilding.GetComponent<Buildings>();
+                StorageOpen currentStorage = other.gameObject.GetComponent<StorageOpen>();
+                if(huidigGebouw.woodNeeded > 0)
+                {
+                    if(currentStorage.woodStorage >= huidigGebouw.woodNeeded)
+                    {
+                        wood = huidigGebouw.woodNeeded;
+                        currentStorage.woodStorage -= wood;
+                    }
+                    else if(currentStorage.woodStorage < huidigGebouw.woodNeeded)
+                    {
+                        wood = currentStorage.woodStorage;
+                        currentStorage.woodStorage = 0;
+                    }
+                }
+                if (huidigGebouw.stoneNeeded > 0)
+                {
+                    if (currentStorage.stoneStorage >= huidigGebouw.stoneNeeded)
+                    {
+                        stone = huidigGebouw.stoneNeeded;
+                        currentStorage.stoneStorage -= stone;
+                    }
+                    else if (currentStorage.stoneStorage < huidigGebouw.stoneNeeded)
+                    {
+                        stone = currentStorage.stoneStorage;
+                        currentStorage.stoneStorage = 0;
+                    }
+                }
+                if (huidigGebouw.metalNeeded > 0)
+                {
+                    if (currentStorage.metalStorage >= huidigGebouw.metalNeeded)
+                    {
+                        metal = huidigGebouw.metalNeeded;
+                        currentStorage.metalStorage -= metal;
+                    }
+                    else if (currentStorage.metalStorage < huidigGebouw.metalNeeded)
+                    {
+                        metal = currentStorage.metalStorage;
+                        currentStorage.metalStorage = 0;
+                    }
+                }
+                else
+                {
+                    ChangeTarget(4);
+                }
             }
         }
     }
