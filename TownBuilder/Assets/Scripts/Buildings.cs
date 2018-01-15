@@ -131,7 +131,6 @@ public class Buildings : MonoBehaviour{
         {
             if(children.Count >= 3)
             {
-                print("ada");
                 children[2].gameObject.SetActive(true);
             }
             else
@@ -140,6 +139,8 @@ public class Buildings : MonoBehaviour{
             }
             bs = BuildingState.Done;
             JobsAndNeedsManager.toBuild.Remove(this.gameObject);
+            wk.target = null;
+            print(JobsAndNeedsManager.toBuild.Count);
         }
     }
 }

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65304622805088932}
   - component: {fileID: 23872172623600594}
   - component: {fileID: 114223090641190116}
+  - component: {fileID: 208898240484785802}
   m_Layer: 0
   m_Name: TreeTest
   m_TagString: Untagged
@@ -109,3 +110,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hO: {fileID: 11400000, guid: c3bad3cddd6fc3e4a90c769ba7f0fb15, type: 2}
   harvestProgress: 0
+--- !u!208 &208898240484785802
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1896724322306198}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
