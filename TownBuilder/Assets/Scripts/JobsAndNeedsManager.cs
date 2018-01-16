@@ -16,7 +16,6 @@ public class JobsAndNeedsManager : MonoBehaviour {
     void Update()
     {
         SelectIntObject();
-        print(Storage.Count);
     }
 
     public void OverButonTrigger()

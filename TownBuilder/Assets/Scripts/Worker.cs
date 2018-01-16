@@ -62,30 +62,33 @@ public class Worker : MonoBehaviour {
 
     public void WorkerActivity()
     {
-        //print(activity + " Worker");
         if(currenyJob == Job.Worker)
         {
-            if(activity == State.Idel)
+            print(activity + " Worker");
+            if (activity == State.Idel)
             {
+                nma.isStopped = true;
                 activity = State.Searching;
             }
-
             if (activity == State.Searching)
             {
                 if(JobsAndNeedsManager.toHarvest.Count != 0)
                 {
                     ChangeTarget(1);
                     nma.destination = target.transform.position;
+                    nma.isStopped = false;
                 }
                 else if (JobsAndNeedsManager.toCollect.Count != 0 && wood + stone + metal + food != carryWeight)
                 {
                     ChangeTarget(2);
                     nma.destination = target.transform.position;
+                    nma.isStopped = false;
                 }
                 else if (wood + stone + metal + food != 0 && JobsAndNeedsManager.Storage.Count != 0)
                 {
                     ChangeTarget(4);
                     nma.destination = target.transform.position;
+                    nma.isStopped = false;
                 }
             }
 
@@ -120,9 +123,12 @@ public class Worker : MonoBehaviour {
                 }
                 else
                 {
+                    print("k fam");
                     ChangeTarget(4);
                     print(JobsAndNeedsManager.Storage[0]);
                     nma.destination = target.transform.position;
+                    nma.isStopped = false;
+                    activity = State.Storing;
                 }
             }
 
@@ -138,7 +144,7 @@ public class Worker : MonoBehaviour {
     {
         if (currenyJob == Job.Builder)
         {
-            print(activity + " Builder");
+            //print(activity + " Builder");
             if(activity == State.Idel)
             {
                 if (JobsAndNeedsManager.toBuild.Count != 0)
@@ -150,6 +156,7 @@ public class Worker : MonoBehaviour {
                     if (target != null)
                     {
                         nma.destination = target.transform.position;
+                        nma.isStopped = false;
                         activity = State.Searching;
                     }
                 }
@@ -172,6 +179,7 @@ public class Worker : MonoBehaviour {
                 {
                     ChangeTarget(4);
                     nma.destination = target.transform.position;
+                    nma.isStopped = false;
                 }
             }
         }
@@ -188,18 +196,18 @@ public class Worker : MonoBehaviour {
         stone = 0;
         metal = 0;
         food = 0;
+        activity = State.Idel;
+        target = null;
     }
 
     public void Harvest()
     {
         if(target != null)
         {
-            print("ok");
             HarvestableObjectHolder hOH = target.GetComponent<HarvestableObjectHolder>();
             if (hOH.harvestProgress != hOH.hO.workNeeded)
             {
                 hOH.harvestProgress += 10;
-                print("Harvest");
                 if (hOH.harvestProgress == hOH.hO.workNeeded)
                 {
                     JobsAndNeedsManager.toCollect.Add(Instantiate(hOH.hO.ingameFormRecourse, target.transform.position, Quaternion.identity));
@@ -280,7 +288,7 @@ public class Worker : MonoBehaviour {
                 }
             }
         }
-        else if (1 == 4)
+        else if (i == 4)
         {
             float dist = Mathf.Infinity;
             foreach (GameObject g in JobsAndNeedsManager.Storage)
@@ -312,6 +320,7 @@ public class Worker : MonoBehaviour {
             }
             if (activity == State.Storing && other.gameObject == target && target.GetComponent<StorageOpen>())
             {
+                print("Storing");
                 StoringRecourses();
             }
         }
@@ -323,7 +332,6 @@ public class Worker : MonoBehaviour {
         {
             if (activity == State.Searching && other.gameObject == target && target.GetComponent<Buildings>().health != target.GetComponent<Buildings>().maxHealth)
             {
-                print("collisionWhitTarget");
                 activity = State.Building;
                 StartCoroutine(Building());
             }

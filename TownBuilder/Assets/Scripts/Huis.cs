@@ -7,7 +7,7 @@ public class Huis : Buildings {
     public override void Start()
     {
         base.Start();
-        maxHealth = stoneNeeded + woodNeeded + MetalNeeded;
+        maxHealth = stoneNeeded + woodNeeded + metalNeeded;
         if(maxHealth == 0)
         {
             maxHealth = 100;
