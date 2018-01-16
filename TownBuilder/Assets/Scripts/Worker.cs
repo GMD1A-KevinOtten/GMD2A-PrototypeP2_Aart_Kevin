@@ -123,7 +123,6 @@ public class Worker : MonoBehaviour {
                 }
                 else
                 {
-                    print("k fam");
                     ChangeTarget(4);
                     print(JobsAndNeedsManager.Storage[0]);
                     nma.destination = target.transform.position;
@@ -299,6 +298,7 @@ public class Worker : MonoBehaviour {
                 {
                     target = g;
                     dist = curDist;
+                    activity = State.Storing;
                 }
             }
         }
